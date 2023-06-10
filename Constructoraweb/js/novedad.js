@@ -29,7 +29,7 @@ const formularioBackgroundNovedad = document.getElementById("formularioNovedad")
 	eliminarNovedadBackground = document.getElementById("eliminarNovedad"),
 	eliminarNovedadContainer = document.getElementById("eliminarNovedadContainer"),
 	closeButtonEliminarNovedad = document.getElementById("close-button-eliminar-novedad"),
-	closeButtonModificarNovedad = document.getElementById("close-button-modificar-novedad"),
+	closeButtonModificarNov = document.getElementById("close-button-modificar-novedad"),
 	closeButtonNovedad = document.getElementById("close-button-novedad");
 
   // Event listener para cerrar el formulario del novedad al hacer clic en el botón de cierre
@@ -37,7 +37,7 @@ const formularioBackgroundNovedad = document.getElementById("formularioNovedad")
     cerrarFormularioNovedad();
 	document.getElementById("formularioRegistroNovedad").reset();
   });
-  closeButtonModificarNovedad.addEventListener("click", function () {
+  closeButtonModificarNov.addEventListener("click", function () {
     cerrarModificarNovedad();
 	document.getElementById("formularioModificarNovedad").reset();
   });

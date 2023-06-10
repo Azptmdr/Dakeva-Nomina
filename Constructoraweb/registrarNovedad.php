@@ -10,8 +10,6 @@ function registrarNovedad(){
     $empleado_id = $_POST['listaEmpleado'];
     $tipo_novedad_id = $_POST['tipoNovedad'];
     $cantidad = $_POST['cantidad'];
-    $remuneracion = 0; // Aquí debes establecer el valor de remuneración según tus necesidades
-    $fecha_inicio = date('Y-m-d'); // Fecha actual
 
     // Validar los datos recibidos (puedes agregar más validaciones según tus necesidades)
 
@@ -21,17 +19,22 @@ function registrarNovedad(){
     }
 
     // Llamar al procedimiento almacenado para registrar la novedad
-    $query = "CALL RegistrarNovedad($empleado_id, $tipo_novedad_id, $cantidad, $remuneracion, '$fecha_inicio', NULL)";
-    $result = $conn->query($query);
+    $query = "CALL RegistrarNovedad(:empleadoId, :tipoNovedadId, :cantidad)";
+    $statement = $conn->prepare($query);
+    $statement->bindParam(':empleadoId', $empleado_id, PDO::PARAM_INT);
+    $statement->bindParam(':tipoNovedadId', $tipo_novedad_id, PDO::PARAM_INT);
+    $statement->bindParam(':cantidad', $cantidad, PDO::PARAM_INT);
+    $statement->execute();
 
-    if ($result === TRUE) {
-        echo "Error, no se pudo agregar la novedad";
-    } else {
+    if ($statement->rowCount() > 0) {
         header("Location: nomina.php");
         exit();
+    } else {
+        echo "Error, no se pudo agregar la novedad";
     }
 }
     
 registrarNovedad();
 $conn = null;
 ?>
+

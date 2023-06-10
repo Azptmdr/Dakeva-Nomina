@@ -259,9 +259,7 @@ reportesLink.addEventListener('click', function(event) {
 });
 
 const openButtonNomina = document.getElementById("verDetalle"),
-	openButtonLiquidacion= document.getElementById("verDetalleLiquidacion"),
-	closeButtonModificarNovedad = document.getElementById("close-button-modificar-novedad"),
-	closeButtonNovedad = document.getElementById("close-button-novedad")
+	openButtonLiquidacion= document.getElementById("verDetalleLiquidacion");
 
 	openButtonNomina.addEventListener("click", function () {
 		var detalleNomina = document.getElementById("DetalleNomina");

@@ -342,10 +342,10 @@
 							<tbody>
 								<tr>
 									<td>
-										<p>Mes</p>
+										<p><?php echo date('F'); ?></p>
 									</td>
 									<td>
-										<p><?php ?></p>
+									<?php include 'obtenerTotalNomina.php'; ?>
 									</td>
 									<td>
 										<button style="border: none; background-color: transparent;"> <i class='bx bxs-file-find' id="verDetalle"></i> </button>
@@ -366,12 +366,12 @@
 									<tr>
 										<th>ID empleado</th>
 										<th>Nombre completo</th>
-										<th>Salario base</th>
-										<th>Fecha nómina</th>
+										<th>Transporte</th>
+										<th>Sueldo total</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php include_once 'mostrarHistorialNomina.php';?>
+									<?php include_once 'mostrarDetalleNomina.php';?>
 								</tbody>
 							</table>
 						</div>
@@ -405,23 +405,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>
-										<button id = "modify-fila" style="border: none; background-color: transparent;"><i class='bx bxs-edit-alt' onclick="modificarFormularioNovedad()"></i></button>
-										<button id = "modify-fila" style="border: none; background-color: transparent;"><i class='bx bxs-trash' onclick="eliminarFormularioNovedad()"></i></button>
-									</td>
-									<td>
-										<p>John Doe</p>
-									</td>
-									<td>Incapacidad</td>
-									<td>10</td>
-									<td>
-										<p>01/01/2023</p>
-									</td>
-									<td>
-										<p>10/01/2023</p>
-									</td>
-								</tr>
+								<?php include_once 'listaNovedades.php'; ?>
 							</tbody>
 						</table>
 						<!--FORMULARIO DE REGISTRO-->
@@ -508,16 +492,40 @@
 						<table>
 							<thead>
 									<th>Mes</th>
+									<th>Salud</th>
+									<th>Pension</th>
+									<th>Cesantías</th>
+									<th>Interés cesantías</th>
+									<th>Prima</th>
+									<th>Vacaciones</th>
 									<th>Total</th>
 									<th>Ver</th>
 							</thead>
 							<tbody>
 								<tr>
 									<td>
-										<p>Mes</p>
+										<p><?php echo date('F'); ?></p>
 									</td>
 									<td>
-										<p>Total</p>
+										<?php include_once 'mostrarTotalSalud.php'; ?>
+									</td>
+									<td>
+										<?php include_once 'mostrarTotalPension.php'; ?>
+									</td>
+									<td>
+										<?php include_once 'mostrarTotalCesantias.php'; ?>
+									</td>
+									<td>
+										<?php include_once 'mostrarTotalInteres.php'; ?>
+									</td>
+									<td>
+										<?php include_once 'mostrarTotalPrima.php'; ?>
+									</td>
+									<td>
+										<?php include_once 'mostrarTotalVacaciones.php'; ?>
+									</td>
+									<td>
+										<?php include_once 'mostrarTotalLiquidacion.php'; ?>
 									</td>
 									<td>
 										<button style="border: none; background-color: transparent;"><i class='bx bxs-file-find' id="verDetalleLiquidacion"></i></button>
@@ -530,41 +538,7 @@
 
 			
 				<div id="DetalleLiquidacion" class="table-data" style="display: none;">
-					<div class="order">
-						<div class="head">
-							<h3>Detalle de liquidación</h3>
-							<button id="btn-liquidar">Liquidar</button>
-						</div>
-						<table>
-							<thead>
-								<tr>
-									<th>ID empleado</th>
-									<th>Nombre completo</th>
-									<th>Fecha liquidación</th>
-									<th>Salario total</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<p>1001</p>
-									</td>
-									<td>
-										<p>John Doe</p>
-									</td>
-									<td>
-										<p>8/06/2023</p>
-									</td>
-									<td>
-										<p>$ 1'372.999</p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="table-data">
-					<div class="order">
+				<div class="order">
 						<div class="head">
 							<h3>Detalle de liquidación</h3>
 						</div>
@@ -573,37 +547,17 @@
 								<tr>
 									<th>ID empleado</th>
 									<th>Nombre completo</th>
-									<th>Salario base</th>
-									<th>Transporte</th>
-									<th>Prestaciones de ley</th>
-									<th>Novedades remuneradas</th>
-									<th>Salario total mensual</th>
+									<th>Salud</th>
+									<th>Pension</th>
+									<th>Cesantias</th>
+									<th>Interes cesantias</th>
+									<th>Prima</th>
+									<th>Vacaciones</th>
+									<th>Total liquidado</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>
-										<p>1001</p>
-									</td>
-									<td>
-										<p>John Doe</p>
-									</td>
-									<td>
-										<p>$ 1'372.999</p>
-									</td>
-									<td>
-										<p>$ 146.300</p>
-									</td>
-									<td>
-										<p>$ 146.300</p>
-									</td>
-									<td>
-										<p>$ 370.300</p>
-									</td>
-									<td>
-										<p>$ 1'372.999</p>
-									</td>
-								</tr>
+							<?php include_once 'mostrarDetalleLiquidacion.php';?>
 							</tbody>
 						</table>
 					</div>

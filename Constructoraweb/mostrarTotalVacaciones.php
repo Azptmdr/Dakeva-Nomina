@@ -5,17 +5,17 @@ $conexion = new Conexion();
 $conn = $conexion->getConexion();
 
 // Llamar al procedimiento almacenado para obtener el total de sueldo
-$query = "CALL ObtenerTotalSueldo()";
+$query = "CALL ObtenerSumaVacaciones()";
 $result = $conn->query($query);
 
 if ($result && $result->rowCount() > 0) {
     $row = $result->fetch(PDO::FETCH_ASSOC);
-    $totalSueldo = $row['TotalSueldo'];
+    $totalVacaciones = $row['total_vacaciones'];
 } else {
-    $totalSueldo = 0;
+    $totalVacaciones = 0;
 }
 
 $conn = null;
 ?>
 
-<p><?php echo $totalSueldo; ?></p>
+<p><?php echo $totalVacaciones; ?></p>
