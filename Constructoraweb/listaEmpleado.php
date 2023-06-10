@@ -15,8 +15,8 @@ function mostrarEmpleados()
         foreach ($result as $row) {
             echo "<tr>";
             echo "<td>";
-            echo "<button id='modify-fila' style='border: none; background-color: transparent;' onclick='modificarFormularioEmpleado(" . $row['ID_EMPLEADO'] . ")'><i class='bx bxs-edit-alt'></i></button>";
-            echo "<button id='modify-fila' style='border: none; background-color: transparent;' onclick='eliminarFormularioEmpleado(" . $row['ID_EMPLEADO'] . ")'><i class='bx bxs-trash'></i></button>";
+            echo "<button style='border: none; background-color: transparent;' onclick='modificarFormularioEmpleado(" . $row['ID_EMPLEADO'] . ")'><i class='bx bxs-edit-alt'></i></button>";
+            echo "<button style='border: none; background-color: transparent;' onclick='eliminarFormularioEmpleado(" . $row['ID_EMPLEADO'] . ")'><i class='bx bxs-trash'></i></button>";
             echo "</td>";
             echo "<td>" . $row['NOMBRE_COMPLETO'] . "</td>";
             echo "<td>" . ($row['SALARIO_INTEGRAL'] == 'S' ? 'SI' : 'NO') . "</td>";

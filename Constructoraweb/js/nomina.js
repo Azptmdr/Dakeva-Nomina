@@ -258,7 +258,28 @@ reportesLink.addEventListener('click', function(event) {
 	reportesContainer.style.display = 'block';
 });
 
-		
+const openButtonNomina = document.getElementById("verDetalle"),
+	openButtonLiquidacion= document.getElementById("verDetalleLiquidacion"),
+	closeButtonModificarNovedad = document.getElementById("close-button-modificar-novedad"),
+	closeButtonNovedad = document.getElementById("close-button-novedad")
+
+	openButtonNomina.addEventListener("click", function () {
+		var detalleNomina = document.getElementById("DetalleNomina");
+		if (detalleNomina.style.display === "none") {
+			detalleNomina.style.display = "block";
+		} else {
+			detalleNomina.style.display = "none";
+		}
+  });
+
+  openButtonLiquidacion.addEventListener("click", function () {
+	var detalleLiquidacion = document.getElementById("DetalleLiquidacion");
+	if (detalleLiquidacion.style.display === "none") {
+		detalleLiquidacion.style.display = "block";
+	} else {
+		detalleLiquidacion.style.display = "none";
+	}
+});
 
 
 

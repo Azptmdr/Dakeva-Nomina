@@ -326,72 +326,56 @@
 						<ul class="breadcrumb">
 						</ul>
 					</div>
-				</div>			
-			
+				</div>	
+				
 				<div class="table-data">
 					<div class="order">
 						<div class="head">
-							<h3>Historial de nómina</h3>
+							<h3>Historial</h3>
 						</div>
 						<table>
 							<thead>
-								<tr>
-									<th>ID empleado</th>
-									<th>Nombre completo</th>
-									<th>Salario base</th>
-									<th>Fecha nómina</th>
-								</tr>
+									<th>Mes</th>
+									<th>Total</th>
+									<th>Ver</th>
 							</thead>
 							<tbody>
-							<?php include_once 'mostrarHistorialNomina.php';?>
+								<tr>
+									<td>
+										<p>Mes</p>
+									</td>
+									<td>
+										<p><?php ?></p>
+									</td>
+									<td>
+										<button style="border: none; background-color: transparent;"> <i class='bx bxs-file-find' id="verDetalle"></i> </button>
+									</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<div class="table-data">
-					<div class="order">
-						<div class="head">
-							<h3>Detalle de nómina</h3>
+
+					<div class="table-data" id="DetalleNomina" style="display: none;">
+						<div class="order">
+							<div class="head">
+								<h3>Historial de nómina</h3>
+							</div>
+							<table>
+								<thead>
+									<tr>
+										<th>ID empleado</th>
+										<th>Nombre completo</th>
+										<th>Salario base</th>
+										<th>Fecha nómina</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php include_once 'mostrarHistorialNomina.php';?>
+								</tbody>
+							</table>
 						</div>
-						<table>
-							<thead>
-								<tr>
-									<th>ID empleado</th>
-									<th>Nombre completo</th>
-									<th>Transporte</th>
-									<th>Novedades remuneradas</th>
-									<th>Salario total</th>
-								</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
 					</div>
-				</div>
-				<div class="table-data">
-					<div class="order">
-						<div class="head">
-							<h3>Prestaciones de ley y seguridad social: Contratos indefinidos</h3>
-						</div>
-						<table>
-							<thead>
-								<tr>
-									<th>ID empleado</th>
-									<th>Nombre completo</th>
-									<th>% Salud</th>
-									<th>% Pension</th>
-									<th>% Cesantías</th>
-									<th>% Interés de cesantías</th>
-									<th>% Prima</th>
-									<th>% Vacaciones</th>
-								</tr>
-							</thead>
-							<tbody>
-							<<?php include_once 'mostrarPrestaciones.php';?>
-							</tbody>
-						</table>
-					</div>
-				</div>
 			</div>
 
 			<div class="novedades-container">
@@ -423,7 +407,7 @@
 							<tbody>
 								<tr>
 									<td>
-										<button id = "modify-fila" style="border: none; background-color: transparent;"><i class='bx bxs-edit-alt' onclick="modificarFormularioNovedad()""></i></button>
+										<button id = "modify-fila" style="border: none; background-color: transparent;"><i class='bx bxs-edit-alt' onclick="modificarFormularioNovedad()"></i></button>
 										<button id = "modify-fila" style="border: none; background-color: transparent;"><i class='bx bxs-trash' onclick="eliminarFormularioNovedad()"></i></button>
 									</td>
 									<td>
@@ -514,12 +498,41 @@
 						<ul class="breadcrumb">
 						</ul>
 					</div>
-				</div>			
-			
+				</div>
+				
 				<div class="table-data">
 					<div class="order">
 						<div class="head">
-							<h3>Historial de liquidación</h3>
+							<h3>Historial</h3>
+						</div>
+						<table>
+							<thead>
+									<th>Mes</th>
+									<th>Total</th>
+									<th>Ver</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<p>Mes</p>
+									</td>
+									<td>
+										<p>Total</p>
+									</td>
+									<td>
+										<button style="border: none; background-color: transparent;"><i class='bx bxs-file-find' id="verDetalleLiquidacion"></i></button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			
+				<div id="DetalleLiquidacion" class="table-data" style="display: none;">
+					<div class="order">
+						<div class="head">
+							<h3>Detalle de liquidación</h3>
 							<button id="btn-liquidar">Liquidar</button>
 						</div>
 						<table>
@@ -827,27 +840,20 @@
 			
 				<div class="reportes-content">
 					<div class="reportes-content-container">
-						<form action="">
+					<form id="myForm" method="POST">
 						<label for="tipoReporte">Tipo de reporte: </label>
 						<select id="opcionesReporte" name="tipoReporte" required>
 							<option value="">-- Selecciona una opción --</option>
 							<option value="novedades">Reporte de novedades</option>
+							<option value="liquidaciones">Reporte de nómina</option>
 							<option value="empleadosActivos">Reporte de empleados</option>
-							<option value="liquidaciones">Reporte de liquidaciones</option>
 							<option value="empleadosInactivos">Reporte de empleados inactivos</option>
 						</select>
-						<label for="fechaInicioReporte">Fecha inicial: </label>
-						<input type="date" id="fechaInicioReporte" name="fechaInicioReporte" required>
-						<label for="fechaFinalReporte">Fecha final: </label>
-						<input type="date" id="fechaFinalReporte" name="fechaFinalReporte" required>
-						<label for="tipoReporte">Tipo de archivo: </label>
-						<select id="opcionesReporte" name="tipoReporte" required>
-							<option value="">-- Selecciona una opción --</option>
-							<option value="novedades">PDF</option>
-							<option value="empleadosActivos">Excel</option>
-							<option value="liquidaciones">CSV</option>
-						</select>
-						<input type="submit" value="Generar" id="generar-reporte">
+						<label for="fechaInicioReporte" id="labelFechaInicio" style="display: none;">Fecha inicial: </label>
+						<input type="date" id="fechaInicioReporte" name="fechaInicioReporte" hidden>
+						<label for="fechaFinalReporte" id="labelFechaFinal" style="display: none;">Fecha final: </label>
+						<input type="date" id="fechaFinalReporte" name="fechaFinalReporte" hidden>
+						<input type="submit" value="Generar Excel" id="generar-reporte">
 					</form>
 					</div>
 				</div>
@@ -856,7 +862,6 @@
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
-	
 	<script src="js/nomina.js"></script>
 	<script src="js/recordatorio.js"></script>
 	<script src="js/empleados.js"></script>
@@ -867,5 +872,6 @@
 	<script src="js/cajacompensacion.js"></script>
 	<script src="js/contrato.js"></script>
 	<script src="js/cargo.js"></script>
+	<script src="js/reportes.js"></script>
 </body>
 </html>

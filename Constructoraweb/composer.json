@@ -1,0 +1,17 @@
+{
+    "name": "constructoraweb/phpspreadsheet",
+    "autoload": {
+        "psr-4": {
+            "Constructoraweb\\Phpspreadsheet\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "vmunozq0811",
+            "email": "vmunoz0811@gmail.com"
+        }
+    ],
+    "require": {       
+                "phpoffice/phpspreadsheet": "^1.18"
+    }
+}

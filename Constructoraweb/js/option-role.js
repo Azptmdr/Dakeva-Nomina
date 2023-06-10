@@ -9,9 +9,9 @@ function validateForm() {
   // Validación exitosa, enviar formulario de manera programática y redirigir
   var form = document.querySelector('.formulary-sign-up');
   form.submit();
-  window.location.href = "home.html";
+  window.location.href = "home.php";
 
   return false; // Evitar el envío del formulario de manera predeterminada
 }
 
-
+  
